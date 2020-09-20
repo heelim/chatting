@@ -1,11 +1,10 @@
-DIRS = Common Server Client
-all:
-	@for d in $(DIRS);\
-		do\
-			$(MAKE) -C $$d;\
-		done
+all: client server
+
+client:
+	g++ Client.cpp -o Client.app
+
+server:
+	g++ Server.cpp -o Server.app
+
 clean:
-	@for d in $(DIRS);\
-		do\
-			$(MAKE) -C $$d clean;\
-		done
+	rm -rf Client.app Server.app
