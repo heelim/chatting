@@ -6,7 +6,7 @@
 #include <sys/types.h>
 #include <sys/socket.h>
 
-#define  BUFF_SIZE  1024
+#define  BUF_SIZE  1024
 
 int main(int argc, char* argv[]) {
     if(argc != 2) {
@@ -22,8 +22,8 @@ int main(int argc, char* argv[]) {
     struct sockaddr_in server_addr;
     struct sockaddr_in client_addr;
 
-    char buff_rcv[BUFF_SIZE];
-    char buff_snd[BUFF_SIZE];
+    char buff_rcv[BUF_SIZE];
+    char buff_snd[BUF_SIZE];
 
     server_socket = socket(PF_INET, SOCK_STREAM, 0);
     if(-1 == server_socket) {
@@ -57,10 +57,10 @@ int main(int argc, char* argv[]) {
         }
         perror("client connected\n");
 
-        read(client_socket, buff_rcv, BUFF_SIZE);
+        read(client_socket, buff_rcv, BUF_SIZE);
         printf("receive: %s\n", buff_rcv);
 
-        sprintf(buff_snd, "%d : %s", strlen(buff_rcv), buff_rcv);
+        sprintf(buff_snd, "%d : %s", (int)strlen(buff_rcv), buff_rcv);
         write(client_socket, buff_snd, strlen(buff_snd)+1);
         close(client_socket);
     }
