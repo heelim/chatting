@@ -3,10 +3,10 @@
 TCP/IP chat program
 
 ### To implement:
-  * kick out client
-  * selective message send
+  * user instruction
+  * multiple user
   * personal chat room
   * file attach
 
 ### Implemented:
-  * single chat room
+  * single user
