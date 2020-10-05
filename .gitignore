@@ -1,0 +1,5 @@
+# : comments
+
+# no .app files
+*.app
+
